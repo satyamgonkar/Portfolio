@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Satyam Gonkar</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="projects.css"/>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<nav>
+  <a href="index.html" class="logo">SG.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse 55% 60% at 90% 20%,rgba(0,229,255,0.08),transparent 65%);"></div>
+  <span class="page-tag">// My Work</span>
+  <h1 class="page-title">Projects I've <span class="grad">Built &amp; Loved.</span></h1>
+  <p class="page-subtitle">From games to freelance websites — a showcase of real projects built with real passion.</p>
+</section>
+
+<!-- FILTER -->
+<div class="filter-bar section-sm" style="border:none;padding-top:0;">
+  <button class="filter-btn active" onclick="filterProjects('all',this)">All</button>
+  <button class="filter-btn" onclick="filterProjects('python',this)">Python</button>
+  <button class="filter-btn" onclick="filterProjects('web',this)">Web</button>
+  <button class="filter-btn" onclick="filterProjects('freelance',this)">Freelance</button>
+</div>
+
+<!-- PROJECTS GRID -->
+<div class="projects-grid section" style="padding-top:0;border:none;">
+
+  <!-- 1: Portfolio -->
+  <div class="project-card card reveal" data-cat="web" data-delay="0">
+    <div class="proj-banner" style="background:linear-gradient(135deg,#061225,#001833);">
+      <div class="proj-glow" style="background:var(--accent);"></div>
+      <span class="proj-icon">🌐</span>
+      <div class="proj-banner-tag">Web Dev</div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-meta">
+        <div class="proj-pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div>
+        <span class="proj-year">2025</span>
+      </div>
+      <h3 class="proj-name">Personal Portfolio Website</h3>
+      <p class="proj-desc">A fully responsive multi-page portfolio site (the one you're viewing!) with particle animations, custom cursor, scroll-reveal effects, and a 6-page architecture.</p>
+      <ul class="proj-features">
+        <li>6 separate HTML pages with shared CSS &amp; JS</li>
+        <li>Canvas-based particle animation on hero</li>
+        <li>Custom animated cursor</li>
+        <li>Fully mobile responsive</li>
+      </ul>
+      <div class="proj-footer">
+        <span class="proj-status status-live">● Live</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: Snake Game -->
+  <div class="project-card card reveal" data-cat="python" data-delay="100">
+    <div class="proj-banner" style="background:linear-gradient(135deg,#0a1a06,#0f2a09);">
+      <div class="proj-glow" style="background:#22c55e;"></div>
+      <span class="proj-icon">🐍</span>
+      <div class="proj-banner-tag">Python Game</div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-meta">
+        <div class="proj-pills"><span class="pill pill-green">Python</span><span class="pill pill-green">Pygame</span></div>
+        <span class="proj-year">2024</span>
+      </div>
+      <h3 class="proj-name">Snake Game</h3>
+      <p class="proj-desc">The classic Snake game built in Python. The snake grows as it eats food, speed increases with score, and the game ends on wall or self-collision.</p>
+      <ul class="proj-features">
+        <li>Arrow key controls for movement</li>
+        <li>Score counter and speed scaling</li>
+        <li>Game-over and restart logic</li>
+        <li>Clean grid-based game engine</li>
+      </ul>
+      <div class="proj-footer">
+        <span class="proj-status status-done">● Completed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3: Tic Tac Toe -->
+  <div class="project-card card reveal" data-cat="python" data-delay="200">
+    <div class="proj-banner" style="background:linear-gradient(135deg,#100a20,#1a0f30);">
+      <div class="proj-glow" style="background:var(--accent2);"></div>
+      <span class="proj-icon">⭕</span>
+      <div class="proj-banner-tag">Python Game</div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-meta">
+        <div class="proj-pills"><span class="pill pill-purple">Python</span></div>
+        <span class="proj-year">2024</span>
+      </div>
+      <h3 class="proj-name">Tic Tac Toe</h3>
+      <p class="proj-desc">Two-player Tic Tac Toe implemented in Python. Players take turns marking X and O on a 3×3 grid, with win and draw detection logic.</p>
+      <ul class="proj-features">
+        <li>2-player local multiplayer</li>
+        <li>Win/draw detection algorithm</li>
+        <li>Replay without restarting program</li>
+        <li>Clean CLI board rendering</li>
+      </ul>
+      <div class="proj-footer">
+        <span class="proj-status status-done">● Completed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4: Number Guessing Game -->
+  <div class="project-card card reveal" data-cat="python" data-delay="300">
+    <div class="proj-banner" style="background:linear-gradient(135deg,#1a0f00,#2a1800);">
+      <div class="proj-glow" style="background:var(--accent3);"></div>
+      <span class="proj-icon">🎯</span>
+      <div class="proj-banner-tag">Python</div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-meta">
+        <div class="proj-pills"><span class="pill pill-orange">Python</span></div>
+        <span class="proj-year">2024</span>
+      </div>
+      <h3 class="proj-name">Number Guessing Game</h3>
+      <p class="proj-desc">An interactive CLI game where the user guesses a randomly generated number within a range. Hints guide the player higher or lower until they guess correctly.</p>
+      <ul class="proj-features">
+        <li>Random number generation</li>
+        <li>Higher / lower hint system</li>
+        <li>Attempt counter per round</li>
+        <li>Multiple difficulty modes</li>
+      </ul>
+      <div class="proj-footer">
+        <span class="proj-status status-done">● Completed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: Civil Builder Landing Page (Freelance) -->
+  <div class="project-card card reveal" data-cat="freelance" data-delay="400" style="border-color:rgba(249,115,22,0.2);">
+    <div class="proj-banner" style="background:linear-gradient(135deg,#1a0800,#2a1000);">
+      <div class="proj-glow" style="background:var(--accent3);"></div>
+      <span class="proj-icon">🏗️</span>
+      <div class="proj-banner-tag" style="background:var(--accent3);color:#fff;">Freelance</div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-meta">
+        <div class="proj-pills"><span class="pill pill-orange">Freelance</span><span class="pill">HTML</span><span class="pill">CSS</span></div>
+        <span class="proj-year">2025</span>
+      </div>
+      <h3 class="proj-name">Civil Builder Landing Page</h3>
+      <p class="proj-desc">Professional landing page built for a real Mumbai-based civil construction company. My first paid project — designed to showcase their services and generate leads.</p>
+      <ul class="proj-features">
+        <li>Real client — Mumbai-based civil builder</li>
+        <li>Service showcase sections</li>
+        <li>Contact &amp; inquiry form</li>
+        <li>Mobile responsive &amp; optimized</li>
+      </ul>
+      <div class="proj-footer">
+        <span class="proj-status status-live">● Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6: This portfolio as a "landing page" too -->
+  <div class="project-card card reveal" data-cat="web" data-delay="500">
+    <div class="proj-banner" style="background:linear-gradient(135deg,#060c20,#0a1530);">
+      <div class="proj-glow" style="background:var(--accent);"></div>
+      <span class="proj-icon">🚀</span>
+      <div class="proj-banner-tag">Web Dev</div>
+    </div>
+    <div class="proj-body">
+      <div class="proj-meta">
+        <div class="proj-pills"><span class="pill">HTML</span><span class="pill">CSS</span></div>
+        <span class="proj-year">2024</span>
+      </div>
+      <h3 class="proj-name">Landing Page Design</h3>
+      <p class="proj-desc">A standalone product landing page project — built to practice conversion-focused web design, hero sections, feature highlights, and call-to-action layout.</p>
+      <ul class="proj-features">
+        <li>Hero with strong CTA</li>
+        <li>Features &amp; benefits section</li>
+        <li>Responsive grid layout</li>
+        <li>Smooth CSS animations</li>
+      </ul>
+      <div class="proj-footer">
+        <span class="proj-status status-done">● Completed</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025 Satyam Gonkar — Bhopal, M.P.</span>
+  <span><a href="mailto:gonkarsatyam0@gmail.com">gonkarsatyam0@gmail.com</a> · <a href="https://linkedin.com/in/satyamgonkar" target="_blank">LinkedIn</a></span>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

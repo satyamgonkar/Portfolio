@@ -1,0 +1,124 @@
+/* ============================================================
+   EXPERIENCE PAGE STYLES
+   ============================================================ */
+
+/* ── HIGHLIGHT CARDS ── */
+.highlights { }
+.highlight-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
+  gap: 1.8rem;
+}
+
+.hl-card { display: flex; flex-direction: column; gap: 0; padding: 0; overflow: hidden; }
+.hl-icon-wrap {
+  width: 60px; height: 60px; border-radius: 16px;
+  border: 1px solid;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; margin: 2rem 2rem 0;
+}
+.hl-body { padding: 1.4rem 2rem 2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+
+.hl-tag {
+  display: inline-block;
+  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+  padding: 0.2rem 0.65rem; border-radius: 100px; border: 1px solid;
+  color: var(--accent); background: rgba(0,229,255,0.07); border-color: rgba(0,229,255,0.2);
+  align-self: flex-start;
+}
+.hl-title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.8px; line-height: 1.1; }
+.hl-subtitle { color: var(--muted2); font-size: 0.87rem; font-weight: 300; }
+.hl-desc { color: var(--muted2); font-size: 0.9rem; line-height: 1.72; font-weight: 300; }
+
+.hl-deliverables { display: flex; flex-direction: column; gap: 0.8rem; margin: 0.4rem 0; }
+.hl-del {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  background: rgba(255,255,255,0.02); border: 1px solid var(--border2);
+  border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+}
+.hl-del span { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+.hl-del strong { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.1rem; }
+.hl-del small { color: var(--muted); font-size: 0.78rem; font-weight: 300; }
+
+.hl-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.3rem; }
+
+/* ── INTERNSHALA SECTION ── */
+.intern-section { }
+.intern-layout {
+  display: grid; grid-template-columns: 340px 1fr; gap: 4rem; align-items: start;
+}
+
+.intern-visual { }
+.intern-logo-wrap {
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 2rem;
+  text-align: center; margin-bottom: 1.2rem;
+}
+.intern-logo-icon { font-size: 3.5rem; margin-bottom: 0.6rem; }
+.intern-logo-name {
+  font-family: var(--font-head); font-size: 1.4rem; font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 0.3rem;
+}
+.intern-logo-sub { color: var(--muted); font-size: 0.8rem; font-weight: 300; }
+
+.intern-stat-row {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem;
+}
+.intern-stat {
+  background: var(--card); border: 1px solid var(--border2); border-radius: var(--radius-sm);
+  padding: 1rem 0.5rem; text-align: center;
+  transition: border-color var(--transition);
+}
+.intern-stat:hover { border-color: rgba(0,229,255,0.3); }
+.intern-stat span { font-size: 1.2rem; display: block; margin-bottom: 0.3rem; }
+.intern-stat strong {
+  font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; display: block;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.intern-stat small { color: var(--muted); font-size: 0.7rem; }
+
+.intern-text { color: var(--muted2); font-size: 0.95rem; line-height: 1.8; font-weight: 300; margin-top: 0.8rem; }
+.intern-text em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+/* ── FREELANCE CASE STUDY ── */
+.freelance-section { }
+.case-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+  gap: 1.2rem; margin: 2rem 0;
+}
+.case-card {
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 1.8rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.case-card:hover { border-color: rgba(249,115,22,0.3); transform: translateY(-4px); }
+.case-num {
+  font-family: var(--font-head); font-size: 2.5rem; font-weight: 800;
+  color: rgba(249,115,22,0.15); line-height: 1; margin-bottom: 0.8rem;
+  letter-spacing: -1px;
+}
+.case-card h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.case-card p { color: var(--muted2); font-size: 0.84rem; line-height: 1.65; font-weight: 300; }
+
+.deliverables-strip {
+  display: flex; align-items: center; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: var(--radius); overflow: hidden;
+}
+.del-item {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 1.5rem 2rem; flex: 1; min-width: 200px;
+}
+.del-icon { font-size: 1.5rem; flex-shrink: 0; }
+.del-item strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.15rem; }
+.del-item small { color: var(--muted); font-size: 0.75rem; font-weight: 300; }
+.del-divider { width: 1px; height: 60px; background: var(--border2); }
+
+@media (max-width: 900px) {
+  .highlight-grid { grid-template-columns: 1fr; }
+  .intern-layout { grid-template-columns: 1fr; }
+  .deliverables-strip { flex-direction: column; }
+  .del-divider { width: 100%; height: 1px; }
+}
