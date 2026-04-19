@@ -215,6 +215,7 @@ nav {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(0,229,255,0.04), transparent 60%);
   opacity: 0; transition: opacity var(--transition);
+  pointer-events: none;
 }
 .card:hover { transform: translateY(-6px); border-color: rgba(0,229,255,0.3); box-shadow: 0 22px 55px rgba(0,0,0,0.45); }
 .card:hover::before { opacity: 1; }
