@@ -46,16 +46,17 @@
 .avail-card p { color: var(--muted2); font-size: 0.8rem; font-weight: 300; }
 
 /* ── FORM ── */
-.contact-form-wrap { padding: 2.2rem; }
-.form-title { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.25rem; }
-.form-sub { color: var(--muted); font-size: 0.82rem; font-weight: 300; margin-bottom: 1.8rem; }
+.contact-form-wrap { padding: 2.2rem; position: relative; z-index: 1; }
+.form-title { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.25rem; position: relative; z-index: 2; }
+.form-sub { color: var(--muted); font-size: 0.82rem; font-weight: 300; margin-bottom: 1.8rem; position: relative; z-index: 2; }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { margin-bottom: 1.2rem; }
+.form-group { margin-bottom: 1.2rem; position: relative; z-index: 2; }
 
 label {
   display: block; font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 0.45rem;
+  text-transform: uppercase; color: var(--muted); font-weight: 700;
+  margin-bottom: 0.45rem; position: relative; z-index: 2;
 }
 
 input, textarea, select {
@@ -67,6 +68,7 @@ input, textarea, select {
   font-family: var(--font-body); font-size: 0.9rem;
   padding: 0.72rem 0.95rem; outline: none;
   transition: border-color var(--transition), box-shadow var(--transition);
+  position: relative; z-index: 2;
 }
 input:focus, textarea:focus, select:focus {
   border-color: var(--accent);
@@ -114,6 +116,33 @@ select option { background: #0c1221; }
 
 .loc-info h3 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem; }
 .loc-info p { color: var(--muted2); font-size: 0.87rem; font-weight: 300; line-height: 1.6; }
+
+/* ── PHONE BLUR ── */
+.phone-blurred {
+  filter: blur(5px);
+  user-select: none;
+  transition: filter 0.3s ease;
+}
+.phone-card {
+  cursor: default !important;
+  pointer-events: auto;
+}
+.reveal-phone-btn {
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.2);
+  color: var(--accent);
+  font-size: 0.72rem; font-weight: 600;
+  padding: 0.28rem 0.7rem;
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.reveal-phone-btn:hover {
+  background: rgba(0,229,255,0.15);
+  border-color: var(--accent);
+}
 
 @media (max-width: 900px) {
   .contact-section { grid-template-columns: 1fr; }
