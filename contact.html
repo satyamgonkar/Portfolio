@@ -84,45 +84,51 @@
     <h3 class="form-title">Send a Message</h3>
     <p class="form-sub">I'll reply within 24 hours.</p>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="fname">First Name *</label>
-        <input type="text" id="fname" placeholder="Your name"/>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name *</label>
+          <input type="text" id="fname" name="fname" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Last name"/>
+        </div>
       </div>
+
       <div class="form-group">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" placeholder="Last name"/>
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required/>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="email">Email *</label>
-      <input type="email" id="email" placeholder="your@email.com"/>
-    </div>
+      <div class="form-group">
+        <label for="subject">Topic</label>
+        <select id="subject" name="subject">
+          <option value="">Select a topic…</option>
+          <option value="Internship Opportunity">Internship Opportunity</option>
+          <option value="Freelance Project">Freelance Project</option>
+          <option value="Collaboration">Collaboration</option>
+          <option value="Just Saying Hi">Just Saying Hi</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="subject">Topic</label>
-      <select id="subject">
-        <option value="">Select a topic…</option>
-        <option>Internship Opportunity</option>
-        <option>Freelance Project</option>
-        <option>Collaboration</option>
-        <option>Just Saying Hi</option>
-        <option>Other</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+      </div>
 
-    <div class="form-group">
-      <label for="message">Message *</label>
-      <textarea id="message" rows="5" placeholder="What's on your mind?"></textarea>
-    </div>
-
-    <button id="submitBtn" class="btn btn-primary" onclick="handleSubmit()" style="width:100%;justify-content:center;font-size:1rem;padding:0.95rem;">
-      Send Message ✉️
-    </button>
+      <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:0.95rem;">
+        Send Message ✉️
+      </button>
+    </form>
 
     <div id="successMsg" style="display:none;margin-top:1rem;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:var(--radius-sm);padding:1rem 1.2rem;font-size:0.88rem;color:#4ade80;align-items:center;gap:0.6rem;">
-      ✅ Your email client has opened! Send the email to reach me. I'll reply within 24 hours.
+      ✅ Message sent successfully! I've received your email and will reply within 24 hours.
+    </div>
+
+    <div id="errorMsg" style="display:none;margin-top:1rem;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:var(--radius-sm);padding:1rem 1.2rem;font-size:0.88rem;color:#f87171;align-items:center;gap:0.6rem;">
+      ❌ Failed to send message. Please try again or email me directly at <a href="mailto:gonkarsatyam0@gmail.com" style="color:#f87171;">gonkarsatyam0@gmail.com</a>.
     </div>
 
     <p style="text-align:center;color:var(--muted);font-size:0.75rem;margin-top:1rem;">
@@ -130,7 +136,6 @@
       <a href="mailto:gonkarsatyam0@gmail.com" style="color:var(--accent);">gonkarsatyam0@gmail.com</a>
     </p>
   </div>
-</section>
 </section>
 
 <!-- LOCATION VISUAL -->
@@ -153,65 +158,96 @@
   <span>© 2025 Satyam Gonkar — Bhopal, M.P.</span>
   <span><a href="mailto:gonkarsatyam0@gmail.com">gonkarsatyam0@gmail.com</a> · <a href="https://linkedin.com/in/satyamgonkar" target="_blank">LinkedIn</a></span>
 </footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script src="main.js"></script>
 <script>
-  // ── WORKING FORM: opens user's email app pre-filled ──
-  window.handleSubmit = function () {
-    const fname   = document.getElementById('fname').value.trim();
-    const lname   = document.getElementById('lname').value.trim();
-    const email   = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
+  // Initialize EmailJS - REPLACE with your User ID from https://dashboard.emailjs.com/
+  emailjs.init("AmyD0iR5vMTu2djlA");
+</script>
+<script>
+  // ── EMAILJS CONTACT FORM HANDLER ──
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value.trim();
-    const btn     = document.getElementById('submitBtn');
-    const success = document.getElementById('successMsg');
+    const btn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
 
     // Validation
     if (!fname || !email || !message) {
-      const wrap = document.querySelector('.contact-form-wrap');
-      wrap.style.animation = 'shake 0.4s ease';
-      wrap.addEventListener('animationend', () => wrap.style.animation = '', { once: true });
-      // Highlight empty fields
-      if (!fname) document.getElementById('fname').style.borderColor = '#ef4444';
-      if (!email) document.getElementById('email').style.borderColor = '#ef4444';
-      if (!message) document.getElementById('message').style.borderColor = '#ef4444';
+      shakeForm();
       return;
     }
 
-    // Build mailto link
-    const fullName    = fname + (lname ? ' ' + lname : '');
-    const subjectLine = subject
-      ? encodeURIComponent('[Portfolio] ' + subject + ' — ' + fullName)
-      : encodeURIComponent('[Portfolio Contact] Message from ' + fullName);
-    const body = encodeURIComponent(
-      'Hi Satyam,\n\n' + message +
-      '\n\n---\nFrom: ' + fullName +
-      '\nEmail: ' + email +
-      (subject ? '\nTopic: ' + subject : '')
-    );
+    // Reset messages
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
 
-    const mailtoLink = 'mailto:gonkarsatyam0@gmail.com?subject=' + subjectLine + '&body=' + body;
-
-    // Animate button
-    btn.innerHTML = '⏳ Opening Email…';
+    // Disable button and show loading state
     btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Sending…';
 
-    setTimeout(() => {
-      window.location.href = mailtoLink;
-      btn.innerHTML = '✅ Email Client Opened!';
-      btn.style.background = 'linear-gradient(130deg,#22c55e,#16a34a)';
-      success.style.display = 'flex';
-      // Reset fields
-      document.getElementById('fname').value = '';
-      document.getElementById('lname').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('subject').value = '';
-      document.getElementById('message').value = '';
-      ['fname','email','message'].forEach(id => {
-        document.getElementById(id).style.borderColor = '';
+    // Prepare template parameters
+    const templateParams = {
+      from_name: fname + (lname ? ' ' + lname : ''),
+      from_email: email,
+      subject: subject || 'No topic selected',
+      message: message,
+      to_name: 'Satyam',
+      reply_to: email
+    };
+
+    // Send email using EmailJS - REPLACE with your Service ID and Template ID
+    emailjs.send('service_0lgc3c2', 'template_d62t139', templateParams)
+      .then(function(response) {
+        console.log('Email sent successfully!', response);
+        
+        // Show success message
+        btn.innerHTML = '✓ Message Sent!';
+        btn.style.background = 'linear-gradient(130deg,#22c55e,#16a34a)';
+        successMsg.style.display = 'flex';
+        
+        // Reset form
+        document.getElementById('contactForm').reset();
+        
+        // Reset button after 3 seconds
+        setTimeout(function() {
+          btn.innerHTML = 'Send Message ✉️';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      }, function(error) {
+        console.error('Email sending failed:', error);
+        
+        // Show error message
+        btn.innerHTML = '✗ Failed to Send';
+        btn.style.background = 'linear-gradient(130deg,#ef4444,#dc2626)';
+        errorMsg.style.display = 'flex';
+        
+        // Reset button after 3 seconds
+        setTimeout(function() {
+          btn.innerHTML = 'Send Message ✉️';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
       });
-    }, 800);
-  };
+  });
 
+  function shakeForm() {
+    const wrap = document.querySelector('.contact-form-wrap');
+    if (!wrap) return;
+    wrap.style.animation = 'shake 0.4s ease';
+    wrap.addEventListener('animationend', () => wrap.style.animation = '', { once: true });
+  }
+</script>
+<script>
   // ── PHONE REVEAL ──
   window.revealPhone = function (e) {
     e.preventDefault();

@@ -1,6 +1,6 @@
 /* ============================================================
-   SATYAM GONKAR PORTFOLIO — GLOBAL JAVASCRIPT
-   ============================================================ */
+    SATYAM GONKAR PORTFOLIO — GLOBAL JAVASCRIPT
+    ============================================================ */
 
 (function () {
   'use strict';
@@ -107,41 +107,8 @@
   };
 
   /* ── CONTACT FORM ── */
-  window.handleSubmit = function () {
-    const fname   = document.getElementById('fname');
-    const email   = document.getElementById('email');
-    const message = document.getElementById('message');
-    const btn     = document.getElementById('submitBtn');
-    const success = document.getElementById('successMsg');
-
-    if (!fname || !email || !message) return;
-
-    if (!fname.value.trim() || !email.value.trim() || !message.value.trim()) {
-      shakeForm();
-      return;
-    }
-
-    btn.disabled = true;
-    btn.innerHTML = '<span class="spinner"></span> Sending…';
-
-    setTimeout(() => {
-      btn.innerHTML = '✓ Message Sent!';
-      btn.style.background = 'linear-gradient(130deg,#22c55e,#16a34a)';
-      if (success) success.style.display = 'flex';
-      fname.value = '';
-      email.value = '';
-      message.value = '';
-      const sub = document.getElementById('subject');
-      if (sub) sub.value = '';
-    }, 1600);
-  };
-
-  function shakeForm() {
-    const wrap = document.querySelector('.contact-form-wrap');
-    if (!wrap) return;
-    wrap.style.animation = 'shake 0.4s ease';
-    wrap.addEventListener('animationend', () => wrap.style.animation = '', { once: true });
-  }
+  // Note: Form handling is now in contact.html using EmailJS
+  // This placeholder is maintained for compatibility
 
   /* ── PARTICLES (canvas) ── */
   const canvas = document.getElementById('heroCanvas');
