@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Satyam Gonkar — Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="logo">SG.</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-orb orb-a"></div>
+  <div class="hero-orb orb-b"></div>
+  <div class="hero-content">
+    <div class="hero-badge reveal" data-delay="100">
+      <span class="badge-pulse"></span>
+      Open to Internships &amp; Collaborations
+    </div>
+    <h1 class="hero-title reveal" data-delay="250">
+      <span class="line1">Hi, I'm</span>
+      <span class="line2">Satyam Gonkar</span>
+      <span class="line3">I'm a <span id="typewriter" class="type-word"></span><span class="caret">|</span></span>
+    </h1>
+    <p class="hero-desc reveal" data-delay="400">
+      Computer Science student at <strong>Bansal College of Engineering</strong>, Bhopal (2024–Batch).
+      Passionate about building software, freelancing, and turning ideas into reality.
+    </p>
+    <div class="hero-cta reveal" data-delay="550">
+      <a href="projects.html" class="btn btn-primary">View Projects →</a>
+      <a href="experience.html" class="btn btn-outline">My Experience</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- LANGS STRIP -->
+<section class="langs-strip section-sm">
+  <p class="section-label">// Languages &amp; Technologies</p>
+  <div class="langs-row">
+    <div class="lang-chip reveal" data-delay="0"><span>🐍</span> Python</div>
+    <div class="lang-chip reveal" data-delay="80"><span>☕</span> Java</div>
+    <div class="lang-chip reveal" data-delay="160"><span>⚡</span> C++</div>
+    <div class="lang-chip reveal" data-delay="240"><span>🔧</span> C</div>
+    <div class="lang-chip reveal" data-delay="320"><span>🌐</span> HTML5</div>
+    <div class="lang-chip reveal" data-delay="400"><span>🎨</span> CSS3</div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="section">
+  <div class="sec-header">
+    <div>
+      <p class="section-label">// What I've Built</p>
+      <h2 class="section-title">Featured <span class="grad">Projects</span></h2>
+    </div>
+    <a href="projects.html" class="view-all-link">View All →</a>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card card reveal" data-delay="0">
+      <div class="feat-banner" style="background:linear-gradient(135deg,#0a1628,#001a33);">
+        <div class="feat-glow" style="background:var(--accent);"></div>
+        <span class="feat-icon">🌐</span>
+      </div>
+      <div class="feat-body">
+        <div class="feat-meta"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JS</span></div>
+        <h3>Personal Portfolio</h3>
+        <p>Multi-page responsive portfolio with custom animations, particle effects, and modern dark UI design.</p>
+        <a href="projects.html" class="card-link">Explore →</a>
+      </div>
+    </div>
+    <div class="feat-card card reveal" data-delay="120">
+      <div class="feat-banner" style="background:linear-gradient(135deg,#0f1a0a,#1a2e0a);">
+        <div class="feat-glow" style="background:#22c55e;"></div>
+        <span class="feat-icon">🐍</span>
+      </div>
+      <div class="feat-body">
+        <div class="feat-meta"><span class="pill pill-green">Python</span></div>
+        <h3>Snake Game</h3>
+        <p>Classic Snake game in Python with score tracking, speed scaling, and game-over screen.</p>
+        <a href="projects.html" class="card-link">Explore →</a>
+      </div>
+    </div>
+    <div class="feat-card card reveal" data-delay="240">
+      <div class="feat-banner" style="background:linear-gradient(135deg,#1a0a00,#2d1200);">
+        <div class="feat-glow" style="background:var(--accent3);"></div>
+        <span class="feat-icon">🏗️</span>
+      </div>
+      <div class="feat-body">
+        <div class="feat-meta"><span class="pill pill-orange">Freelance</span><span class="pill">HTML</span><span class="pill">CSS</span></div>
+        <h3>Civil Builder Landing Page</h3>
+        <p>Professional landing page for a Mumbai-based civil construction company. Real client, real project.</p>
+        <a href="projects.html" class="card-link">Explore →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section section-sm">
+  <div class="stats-grid">
+    <div class="stat reveal" data-delay="0">
+      <span class="stat-num" data-count="6" data-suffix="+">0+</span>
+      <span class="stat-label">Languages</span>
+    </div>
+    <div class="stat reveal" data-delay="100">
+      <span class="stat-num" data-count="5" data-suffix="+">0+</span>
+      <span class="stat-label">Projects Built</span>
+    </div>
+    <div class="stat reveal" data-delay="200">
+      <span class="stat-num" data-count="1" data-suffix="">0</span>
+      <span class="stat-label">Internship</span>
+    </div>
+    <div class="stat reveal" data-delay="300">
+      <span class="stat-num" data-count="1" data-suffix="">0</span>
+      <span class="stat-label">Freelance Client</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band section">
+  <div class="cta-inner reveal">
+    <p class="section-label">// Let's Connect</p>
+    <h2>Got an Idea? <span class="grad">Let's Build It.</span></h2>
+    <p>Always looking for exciting projects, internships, and great people to learn from.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn btn-primary">Get In Touch →</a>
+      <a href="experience.html" class="btn btn-outline">See My Experience</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Satyam Gonkar — Bhopal, M.P.</span>
+  <span>
+    <a href="mailto:gonkarsatyam0@gmail.com">gonkarsatyam0@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/satyamgonkar" target="_blank">LinkedIn</a>
+  </span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
